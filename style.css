@@ -1,0 +1,393 @@
+/* --- Global Variables --- */
+:root {
+    --main-font: 'Anton', sans-serif;
+    --secondary-font: 'Coustard', serif;
+    --red-primary: #FF0000;
+    --white-text: #FFFFFF;
+    --black-shadow: #000000;
+    --section-padding: 80px 5%;
+}
+
+/* --- Base Reset & Global Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: var(--secondary-font); 
+}
+
+body {
+    line-height: 1.6;
+    background-color: #000;
+    color: var(--white-text);
+    overflow-x: hidden;
+}
+
+/* Global text styling */
+p, li, input, textarea {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--white-text);
+}
+
+a {
+    text-decoration: none;
+    color: var(--white-text);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--red-primary);
+}
+
+/* --- IMAGE CONTROL RULES --- */
+
+img {
+    max-width: 100%; /* Ensures all images are never wider than their parent container */
+    height: auto;    /* Maintains aspect ratio */
+    display: block;  
+}
+
+.menu-header-img {
+    max-width: 800px; 
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px solid var(--red-primary);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+.map-container iframe {
+    max-width: 800px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Navigation Bar --- */
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    border-bottom: 2px solid var(--red-primary);
+}
+
+.nav-brand {
+    font-family: var(--main-font);
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    color: var(--red-primary);
+    text-shadow: 3px 3px var(--black-shadow);
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    font-family: var(--main-font);
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    color: var(--white-text);
+    text-shadow: 2px 2px var(--black-shadow);
+    letter-spacing: 1px;
+    padding: 5px 10px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--red-primary);
+    border-color: var(--red-primary);
+    transform: scale(1.05);
+}
+
+/* --- Parallax Main Content Wrapper (CENTERED) --- */
+.main-content-wrapper {
+    min-height: 100vh;
+    padding-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center 50%;
+    background-attachment: fixed;
+    transition: background-position 0s;
+    text-align: center;
+}
+
+.home-section, .menu-section, .contact-section {
+    padding: var(--section-padding);
+    max-width: 1200px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-section .content, .menu-section .content, .contact-section .content {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+/* --- Road Ranch Title Style --- */
+.hero-title, .menu-title, .contact-section h1 {
+    font-family: var(--main-font);
+    font-size: clamp(4rem, 15vw, 10rem);
+    color: var(--red-primary);
+    letter-spacing: 5px;
+    line-height: 1;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    
+    /* Thick Shadow Effect */
+    text-shadow:
+        4px 4px 0 var(--black-shadow),   
+        -4px -4px 0 var(--black-shadow),
+        4px -4px 0 var(--black-shadow),
+        -4px 4px 0 var(--black-shadow),
+        0 0 10px var(--black-shadow); 
+}
+
+.tagline {
+    font-family: var(--secondary-font);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--white-text);
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 5px var(--black-shadow);
+}
+
+.description {
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--white-text);
+    text-shadow: 1px 1px 3px var(--black-shadow);
+}
+
+.decorative-braai-images {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allows images to wrap onto the next line */
+    gap: 20px; /* Reduced gap for mobile */
+    margin-top: 50px;
+    max-width: 1000px;
+}
+
+/* Controls the Decorative Braai Images on the home page (Desktop size) */
+.braai-decor {
+    width: clamp(100px, 25%, 200px); /* Sets a flexible size based on 4 columns */
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(5px 5px 8px rgba(0,0,0,0.7));
+    transition: transform 0.3s ease;
+}
+
+.braai-decor:hover {
+    transform: translateY(-10px) scale(1.05);
+}
+
+/* --- Menu Page Specifics --- */
+
+.menu-thumbnails {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.menu-item-btn {
+    border: 3px solid var(--red-primary);
+    padding: 0;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* --- Modal (Flash Card) Styling --- */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9); 
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--black-shadow);
+    color: var(--white-text);
+    padding: 30px;
+    border: 5px solid var(--red-primary);
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 0 20px var(--red-primary);
+    position: relative;
+    text-align: center;
+    animation: fadeIn 0.5s;
+}
+
+.close-btn, .close-btn-form {
+    color: var(--red-primary);
+    float: right;
+    font-size: 40px;
+    font-weight: bold;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.modal-content h3 {
+    color: var(--red-primary);
+    font-family: var(--main-font);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+/* --- Contact Page Layout & Form --- */
+.contact-details {
+    margin-bottom: 30px;
+}
+
+.contact-details p {
+    margin: 5px 0;
+}
+
+.contact-details p:nth-child(2) {
+    font-size: 1.5rem; 
+    color: var(--red-primary);
+    margin: 10px 0 20px 0;
+}
+
+.map-container {
+    margin: 40px 0;
+}
+
+#form-toggle-btn {
+    display: block;
+    margin: 40px auto 20px;
+}
+
+.social-links-contact {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    font-family: var(--secondary-font);
+    color: var(--white-text);
+    padding: 5px 10px;
+    border: 1px solid var(--red-primary);
+    text-shadow: 1px 1px 2px black;
+}
+
+/* Form inputs styling */
+#contact-form-flash input, 
+#contact-form-flash textarea {
+    width: 90%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    background-color: var(--black-shadow);
+    border: 2px solid var(--red-primary);
+    color: var(--white-text);
+    font-family: var(--secondary-font);
+    text-align: center;
+}
+
+#contact-form-flash button {
+    margin-top: 20px;
+    padding: 10px 30px;
+    background-color: var(--red-primary);
+    color: var(--white-text);
+    border: none;
+    font-family: var(--main-font);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#contact-form-flash button:hover {
+    background-color: #AA0000;
+}
+
+/* --- Floating Order Button --- */
+.floating-order-btn {
+    position: fixed;
+    right: 20px; 
+    bottom: 50px; 
+    z-index: 900; 
+    font-family: var(--main-font);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    padding: 15px 30px;
+    background-color: var(--red-primary);
+    color: var(--white-text);
+    border: 3px solid var(--black-shadow);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.floating-order-btn:hover {
+    background-color: #AA0000;
+    transform: scale(1.05);
+}
+
+
+/* --- Responsive Adjustments (Includes Mobile Image Fix) --- */
+@media (max-width: 768px) {
+    .main-nav {
+        flex-direction: column;
+        padding: 10px 5%;
+    }
+    .nav-links {
+        margin-top: 10px;
+        gap: 15px;
+    }
+    .hero-title {
+        text-shadow: 2px 2px 0 var(--black-shadow);
+    }
+    
+    /* FIX: Force images to stack and center individually on smaller screens */
+    .decorative-braai-images {
+        flex-direction: column; /* Stack them vertically */
+        align-items: center;    /* Center each item in the column */
+        gap: 30px;
+    }
+    
+    .braai-decor {
+        /* Allow the image to take up most of the container width to stack clearly */
+        width: 70%; 
+        max-width: 300px;
+    }
+    
+    .floating-order-btn {
+        right: 10px;
+        bottom: 20px;
+        font-size: 1.2rem;
+        padding: 10px 20px;
+    }
+}

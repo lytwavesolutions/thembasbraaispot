@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Themba's Braai Spot | Home of Authentic Braai</title>
+    <meta name="description" content="Experience the best authentic South African Braai at Themba's Braai Spot. Road Ranch style, bold flavors, unforgettable moments.">
+    <meta name="keywords" content="Themba's Braai, Braai Spot, South African Braai, Road Ranch, BBQ, Grill, Orlando East, Johannesburg">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Coustard&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="main-nav">
+        <div class="nav-brand">THEMBA'S BRAAI SPOT</div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-link active">HOME</a></li>
+            <li><a href="menu.html" class="nav-link">MENU</a></li>
+            <li><a href="contact.html" class="nav-link">FIND US / CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content-wrapper" style="background-image: url('https://res.cloudinary.com/dg2udfm5l/image/upload/v1763500533/background_wq375b.png');" data-speed="0.7">
+        <section class="home-section">
+            <div class="content">
+                <h1 class="hero-title">THEMBA'S BRAAI SPOT</h1>
+                <p class="tagline">WHERE FLAMES MEET FLAVOR</p>
+                <p class="description">
+                    At Themba's, we bring you the authentic taste of South African braai, perfected over generations. Our roadside ranch style means hearty portions, sizzling meats, and unforgettable moments shared with friends and family. Come on down and taste the tradition!
+                </p>
+                
+                <div class="decorative-braai-images">
+                    <img src="https://res.cloudinary.com/dg2udfm5l/image/upload/v1763500525/menu5_mrwfm8.jpg" alt="Braai Skewer" class="braai-decor left"> 
+                    <img src="https://res.cloudinary.com/dg2udfm5l/image/upload/v1763500523/braai1_kdnelm.jpg" alt="Braai Grill" class="braai-decor middle">
+                    <img src="https://res.cloudinary.com/dg2udfm5l/image/upload/v1763500522/braai3_ht0byj.jpg" alt="Braai Grill" class="braai-decor top">
+                    <img src="https://res.cloudinary.com/dg2udfm5l/image/upload/v1763500522/braai4_vgavkg.webp" alt="Braai Grill" class="braai-decor right">
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainContentWrapper = document.querySelector('.main-content-wrapper');
+
+            function parallax() {
+                const rect = mainContentWrapper.getBoundingClientRect();
+                const speed = parseFloat(mainContentWrapper.getAttribute('data-speed'));
+                // Parallax calculation
+                const offset = (rect.top + rect.height / 2 - window.innerHeight / 2) * speed * -1;
+                mainContentWrapper.style.backgroundPositionY = `${offset}px`;
+            }
+
+            parallax();
+            window.addEventListener('scroll', parallax);
+            window.addEventListener('resize', parallax);
+        });
+    </script>
+        <!-- FLOATING ORDER BUTTON -->
+    <a href="contact.html" class="floating-order-btn">ORDER</a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainContentWrapper = document.querySelector('.main-content-wrapper');
+
+            function parallax() {
+                const rect = mainContentWrapper.getBoundingClientRect();
+                const speed = parseFloat(mainContentWrapper.getAttribute('data-speed'));
+                // Parallax calculation
+                const offset = (rect.top + rect.height / 2 - window.innerHeight / 2) * speed * -1;
+                mainContentWrapper.style.backgroundPositionY = `${offset}px`;
+            }
+
+            parallax();
+            window.addEventListener('scroll', parallax);
+            window.addEventListener('resize', parallax);
+        });
+    </script>
+        <!-- FLOATING ORDER BUTTON -->
+    <a href="contact.html" class="floating-order-btn">ORDER</a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainContentWrapper = document.querySelector('.main-content-wrapper');
+
+            function parallax() {
+                const rect = mainContentWrapper.getBoundingClientRect();
+                const speed = parseFloat(mainContentWrapper.getAttribute('data-speed'));
+                // Parallax calculation
+                const offset = (rect.top + rect.height / 2 - window.innerHeight / 2) * speed * -1;
+                mainContentWrapper.style.backgroundPositionY = `${offset}px`;
+            }
+
+            parallax();
+            window.addEventListener('scroll', parallax);
+            window.addEventListener('resize', parallax);
+        });
+    </script>
+</body>
+</html>

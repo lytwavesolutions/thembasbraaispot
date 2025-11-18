@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Themba's Braai Spot | Menu</title>
+    <meta name="description" content="View the full menu at Themba's Braai Spot. Sizzling meats, hearty sides, and authentic South African flavors.">
+    <meta name="keywords" content="Braai Menu, Pricing, Meats, Sides, Wors, Ribs, Chakalaka">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Coustard&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="main-nav">
+        <div class="nav-brand">THEMBA'S BRAAI SPOT</div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-link">HOME</a></li>
+            <li><a href="menu.html" class="nav-link active">MENU</a></li>
+            <li><a href="contact.html" class="nav-link">FIND US / CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content-wrapper" style="background-image: url('https://res.cloudinary.com/dg2udfm5l/image/upload/v1763500533/background_wq375b.png');" data-speed="0.6">
+        <section class="menu-section">
+            <div class="content">
+                <h1 class="menu-title">THE MENU</h1>
+                
+                <!-- Main Menu Image/Header (Updated to .jpg) -->
+                <img src="https://res.cloudinary.com/dg2udfm5l/image/upload/v1763500523/menu_w5zjae.webp" alt="Themba's Full Menu Header" class="menu-header-img">
+
+                <p class="description" style="margin-top: 40px;">
+                    OUR MENU IS BUILT ON TRADITION, FIRE, AND FRESH INGREDIENTS. CLICK ANY PLATE TO SEE THE DETAILS AND PRICING.
+                </p>
+
+                <!-- Menu Thumbnails -->
+                <div class="menu-thumbnails">
+                    
+                    <!-- Item 1: Steak and Salads -->
+                    <button class="menu-item-btn" data-plate="STEAK AND SALADS" data-price="R 150" data-desc="TENDER GRILLED STEAK SERVED WITH A FRESH GARDEN SALAD AND LIGHT VINAIGRETTE. A PERFECT BRAAI COMBO.">
+                        <img src="https://res.cloudinary.com/dg2udfm5l/image/upload/v1763500522/menu1_nskqbp.jpg" alt="Steak and Salads">
+                    </button>
+                    
+                    <!-- Item 2: Quarter Chicken -->
+                    <button class="menu-item-btn" data-plate="QARTER CHICKEN" data-price="R 95" data-desc="A FLAME-GRILLED CHICKEN QUARTER, SEASONED WITH OUR SECRET SPICE BLEND, JUICY AND SMOKY.">
+                        <img src="https://res.cloudinary.com/dg2udfm5l/image/upload/v1763500521/menu2_eepxlz.jpg" alt="Quarter Chicken">
+                    </button>
+                    
+                    <!-- Item 3: Braai Plate -->
+                    <button class="menu-item-btn" data-plate="BRAAI PLATE" data-price="R 170" data-desc="THE MBA'S SIGNATURE COMBO: WORS, LAMB CHOP, AND CHAKALAKA. A TRUE BRAAI EXPERIENCE.">
+                        <img src="https://res.cloudinary.com/dg2udfm5l/image/upload/v1763500523/menu3_zulfba.jpg" alt="Braai Plate">
+                    </button>
+                    
+                    <!-- Item 4: Braai Plate 2 -->
+                    <button class="menu-item-btn" data-plate="BRAAI PLATE 2" data-price="R 220" data-desc="THE PREMIUM PLATTER: LAMB RIBS, BOEREWORS, AND PAP. BIG ENOUGH FOR TWO TO SHARE.">
+                        <img src="https://res.cloudinary.com/dg2udfm5l/image/upload/v1763500522/menu4_y4ejbb.jpg" alt="Braai Plate 2">
+                    </button>
+                    
+                    <!-- Item 5: The Rack -->
+                    <button class="menu-item-btn" data-plate="THE RACK" data-price="R 190" data-desc="A GENEROUS RACK OF PORK RIBS, SLOW-COOKED AND SMOTHERED IN OUR TANGY BBQ SAUCE.">
+                        <img src="https://res.cloudinary.com/dg2udfm5l/image/upload/v1763500525/menu5_mrwfm8.jpg" alt="The Rack">
+                    </button>
+                    
+                    <!-- Item 6: The Great Rack -->
+                    <button class="menu-item-btn" data-plate="THE GREAT RACK" data-price="R 290" data-desc="THE ULTIMATE RIB EXPERIENCE. A DOUBLE PORTION OF RIBS, SERVED WITH CORN ON THE COB AND CHIPS.">
+                        <img src="https://res.cloudinary.com/dg2udfm5l/image/upload/v1763500532/menu6_bcghju.webp" alt="The Great Rack">
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Flash Card Modal for Pricing -->
+    <div id="flash-card-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">×</span>
+            <h3 id="plate-name"></h3>
+            <p id="plate-price"></p>
+            <p id="plate-description"></p>
+            <!-- NEW: ORDER NOW button redirects to contact.html -->
+            <button id="order-now-btn" class="soft-button">ORDER NOW</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Parallax Functionality
+            const mainContentWrapper = document.querySelector('.main-content-wrapper');
+
+            function parallax() {
+                const rect = mainContentWrapper.getBoundingClientRect();
+                const speed = parseFloat(mainContentWrapper.getAttribute('data-speed'));
+                const offset = (rect.top + rect.height / 2 - window.innerHeight / 2) * speed * -1;
+                mainContentWrapper.style.backgroundPositionY = `${offset}px`;
+            }
+            parallax();
+            window.addEventListener('scroll', parallax);
+            window.addEventListener('resize', parallax);
+
+            // Modal Functionality
+            const modal = document.getElementById('flash-card-modal');
+            const closeBtn = document.querySelector('.close-btn');
+            const menuButtons = document.querySelectorAll('.menu-item-btn');
+            const orderNowBtn = document.getElementById('order-now-btn'); // Get the new button
+
+            menuButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    document.getElementById('plate-name').textContent = button.getAttribute('data-plate');
+                    document.getElementById('plate-price').textContent = `PRICE: ${button.getAttribute('data-price')}`;
+                    document.getElementById('plate-description').textContent = button.getAttribute('data-desc');
+                    modal.style.display = 'flex';
+                });
+            });
+
+            // Handle modal closure
+            closeBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            window.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+
+            // Handle ORDER NOW button click
+            orderNowBtn.addEventListener('click', () => {
+                window.location.href = 'contact.html'; 
+            });
+        });
+    </script>
+        <!-- FLOATING ORDER BUTTON -->
+    <a href="contact.html" class="floating-order-btn">ORDER</a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainContentWrapper = document.querySelector('.main-content-wrapper');
+
+            function parallax() {
+                const rect = mainContentWrapper.getBoundingClientRect();
+                const speed = parseFloat(mainContentWrapper.getAttribute('data-speed'));
+                // Parallax calculation
+                const offset = (rect.top + rect.height / 2 - window.innerHeight / 2) * speed * -1;
+                mainContentWrapper.style.backgroundPositionY = `${offset}px`;
+            }
+
+            parallax();
+            window.addEventListener('scroll', parallax);
+            window.addEventListener('resize', parallax);
+        });
+    </script>
+</body>
+</html>
